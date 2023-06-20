@@ -5,7 +5,7 @@ from datetime import datetime
 # Load stock prices file containing indicators
 
 ticker = 'aapl'
-PATH = '/Users/robertocorizzo/Desktop/Stocks/polished/'
+PATH = '/Users/user/git/stock-market-stacking/'
 
 time_range_low = date(2021,1,4)
 time_range_high = date(2022,9,20)
@@ -18,10 +18,7 @@ dfObserve = pd.read_csv(PATH + 'FULL_DATASET/' + ticker + '/stocks_ts_'+ ticker 
 
 dfStacking = pd.read_csv(PATH + 'stackModelTrain.csv',encoding = 'utf-8-sig')
 
-###############################################################
 # From 1/7/2021 to 2010-06-29 format
-###############################################################
-
 modifiedDatesNew = []
 dates_stacking = dfStacking["Unnamed: 0"]
 
@@ -37,21 +34,14 @@ dfStacking["date"] = modifiedDatesNew
 dfStacking["date"] = dfStacking["date"].astype(str)
 dfObserve["date"] = dfObserve["date"].astype(str)
 
-#rsi,12-Day EMA,26-Day EMA,MACD,SAR,Upper Band,Middle Band,Lower Band,Slow k,Slow d
-
-#date + all desired indicators
-
+# rsi,12-Day EMA,26-Day EMA,MACD,SAR,Upper Band,Middle Band,Lower Band,Slow k,Slow d
+# date + all desired indicators
 indicatorColumns = dfObserve[['date','rsi','12-Day EMA','26-Day EMA','MACD','SAR','Upper Band','Middle Band','Lower Band','Slow k','Slow d']]
 
-###############################################################
 # Join two dataframes
-###############################################################
 newDF = dfStacking.merge(indicatorColumns, on='date', how='inner')
 
 print(newDF)
-#optional: drop new date column
-#newDF.drop('date')
+#newDF.drop('date') #optional: drop new date column
 
 newDF.to_csv('dfMerged.csv')
-
-newDF
