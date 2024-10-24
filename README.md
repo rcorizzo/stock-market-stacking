@@ -5,11 +5,15 @@ Corizzo, R., & Rosen, J. (2023). Stock market prediction with time series data a
 
 ------  
 ### Cite:
-@article{corizzo2023stock,<br />
-  title={Stock market prediction with time series data and news headlines: a stacking ensemble approach},<br />
-  author={Corizzo, Roberto and Rosen, Jacob},<br />
-  journal={Journal of Intelligent Information Systems},<br />
-  pages={1--30},<br />
-  year={2023},<br />
-  publisher={Springer}<br />
+```
+@article{corizzo2024stock,
+  title={Stock market prediction with time series data and news headlines: a stacking ensemble approach},
+  author={Corizzo, Roberto and Rosen, Jacob},
+  journal={Journal of Intelligent Information Systems},
+  volume={62},
+  number={1},
+  pages={27--56},
+  year={2024},
+  publisher={Springer}
 }
+```
